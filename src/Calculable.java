@@ -1,6 +1,6 @@
 public interface Calculable {
-    Calculable sum(int args);
-    Calculable multi(int args);
-    Calculable division(int args);
-    int getResult();
+    Calculable sum(int DeiArgs,String znak, int MnimArgs);
+    Calculable multi(int DeiArgs,String znak, int MnimArgs);
+    String getResult();
+
 }

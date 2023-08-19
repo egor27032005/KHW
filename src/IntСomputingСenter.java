@@ -1,3 +1,3 @@
 public interface IntСomputingСenter {
-    Calculable create(int number, boolean logFlag);
+    Calculable create(int deiNumber,int mnimNumber, String numberZnak, boolean logFlag);
 }

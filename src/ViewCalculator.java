@@ -8,27 +8,34 @@ public class ViewCalculator{
     }
     public void run() {
         while (true) {
-            int primaryArg = promptInt("Введите первый аргумент: ");
-            Calculable calculator = calculableFactory.create(primaryArg, true);
+            Scanner in = new Scanner(System.in);
+            System.out.println("Введите первый аргумент: ");
+            int primaryDEIArg = promptInt("Введите действительную часть: ");
+            String primarZnak= promptString("Введите знак мнимой части: ");
+            int primaryMnimArgs= promptInt("Введите мнимую часть: ");
+            Calculable calculator = calculableFactory.create(primaryDEIArg,primaryMnimArgs,primarZnak, true);
             while (true) {
-                String cmd = prompt("Введите команду (*, +, /, =) : ");
+                String cmd = prompt("Введите команду (*, +, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите второй аргумент: ");
-                    calculator.multi(arg);
+                    System.out.println("Введите второй аргумент: ");
+                    int DeiArg = promptInt("Введите действительную часть: ");
+                    String argZnak=promptString("Введите знак мнимой части: ");
+                    int MnimArg = promptInt("Введите мнимую часть: ");
+
+                    calculator.multi(DeiArg,argZnak,MnimArg);
                     continue;
                 }
                 if (cmd.equals("+")) {
-                    int arg = promptInt("Введите второй аргумент: ");
-                    calculator.sum(arg);
-                    continue;
-                }
-                if (cmd.equals("/")) {
-                    int arg = promptInt("Введите второй аргумент: ");
-                    calculator.division(arg);
+                    System.out.println("Введите второй аргумент: ");
+                    int DeiArg = promptInt("Введите действительную часть: ");
+                    String argZnak=promptString("Введите знак мнимой части: ");
+                    int MnimArg = promptInt("Введите мнимую часть: ");
+
+                    calculator.sum(DeiArg,argZnak,MnimArg);
                     continue;
                 }
                 if (cmd.equals("=")) {
-                    int result = calculator.getResult();
+                    String result = calculator.getResult();
                     System.out.printf("Результат %d\n", result);
                     break;
                 }
@@ -50,6 +57,11 @@ public class ViewCalculator{
         Scanner in = new Scanner(System.in);
         System.out.print(message);
         return Integer.parseInt(in.nextLine());
+    }
+    private String promptString(String message) {
+        Scanner in = new Scanner(System.in);
+        System.out.print(message);
+        return in.nextLine();
     }
 
 }

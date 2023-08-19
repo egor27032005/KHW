@@ -1,9 +1,9 @@
 public class СomputingСenter implements IntСomputingСenter{
-    public Calculable create(int number, boolean logFlag) {
+    public Calculable create(int deiNumber,int mnimNumber, String numberZnak, boolean logFlag) {
         if (logFlag) {
-            Calculable calculator =  new Calculator(number);
+            Calculable calculator =  new Calculator(deiNumber,mnimNumber,numberZnak);
             return new LoggerCalculator(calculator);
         }
-        return new Calculator(number);
+        return new Calculator(deiNumber,mnimNumber,numberZnak);
     }
 }

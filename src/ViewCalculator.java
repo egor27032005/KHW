@@ -36,7 +36,7 @@ public class ViewCalculator{
                 }
                 if (cmd.equals("=")) {
                     String result = calculator.getResult();
-                    System.out.printf("Результат %d\n", result);
+                    System.out.println(result);
                     break;
                 }
             }
